@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | DIOR Lifestyle Records</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* === Base === */
+    body { font-family: 'Goldman', sans-serif; margin: 0; background: #fff; color: #111; overflow-x: hidden; }
+    header { background:#111; padding:20px 30px; display:flex; justify-content:space-between; align-items:center; color:#fff; position:sticky; top:0; z-index:999; }
+    .logo{ font-size:1.6rem; font-weight:bold; }
+    nav ul{ list-style:none; display:flex; gap:18px; margin:0; padding:0; }
+    nav a{ color:#fff; text-decoration:none; transition:opacity .25s; }
+    nav a:hover{ opacity:.7; }
+
+    /* === Hero === */
+    .hero{ position:relative; padding:110px 20px 90px; text-align:center; background:#f4f4f4; overflow:hidden; }
+    .hero h1{ font-size:2.8rem; margin-bottom:18px; }
+    .hero p{ font-size:1.15rem; max-width:820px; margin:0 auto 26px; line-height:1.6; }
+    .hero-watermark{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:220px; font-weight:900; color:rgba(0,0,0,0.05); pointer-events:none; user-select:none; white-space:nowrap; }
+
+    /* Floating triangles */
+    .floating-shapes span{ position:absolute; display:block; width:0; height:0; border-left:28px solid transparent; border-right:28px solid transparent; border-bottom:56px solid #2c2c2c; opacity:0.25; animation:float 28s linear infinite; }
+    .floating-shapes span:nth-child(1){ left:6%;  top:22%; transform:scale(1.2); animation-delay:0s; }
+    .floating-shapes span:nth-child(2){ left:88%; top:30%; transform:scale(0.9); animation-delay:4s; }
+    .floating-shapes span:nth-child(3){ left:48%; top:68%; transform:scale(1.1); animation-delay:8s; }
+    .floating-shapes span:nth-child(4){ left:18%; top:78%; transform:scale(0.7); animation-delay:12s; }
+    .floating-shapes span:nth-child(5){ left:72%; top:12%; transform:scale(1.4); animation-delay:16s; }
+    @keyframes float{ 0%{ transform:translateY(0) rotate(0deg); } 50%{ transform:translateY(-35px) rotate(180deg);} 100%{ transform:translateY(0) rotate(360deg);} }
+
+    /* === Content === */
+    .content{ max-width:1050px; margin:60px auto; padding:0 20px; }
+    .content h2{ font-size:1.9rem; margin:40px 0 20px; }
+    .content p{ line-height:1.8; font-size:1.05rem; margin-bottom:24px; }
+    table{ width:100%; border-collapse:collapse; margin-bottom:50px; }
+    th,td{ padding:16px; border:1px solid #ccc; vertical-align:top; }
+    th{ background:#eee; font-size:1.1rem; }
+
+    /* === Footer === */
+    footer{ background:#111; color:#fff; text-align:center; padding:24px 20px; margin-top:60px; font-size:.9rem; }
+
+    /* Scroll reveal */
+    .reveal{ opacity:0; transform:translateY(25px); transition:opacity .6s ease-out, transform .6s ease-out; }
+    .reveal.show{ opacity:1; transform:translateY(0); }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">DIOR LIFESTYLE RECORDS</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="what-we-do.html">What We Do</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="get-enrolled.html">Get Enrolled</a></li>
+        <li><a href="studios.html">Studios</a></li>
+        <li><a href="our-artists.html">Our Artists</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-watermark">DL</div>
+    <div class="floating-shapes"><span></span><span></span><span></span><span></span><span></span></div>
+    <h1>About DIOR LIFESTYLE RECORDS</h1>
+    <p>We cultivate icons—not trends. Discover the ethos, mission, and vision driving our movement.</p>
+  </section>
+
+  <!-- Main Content -->
+  <section class="content reveal">
+    <p><strong>Dior Lifestyle Records</strong> was founded by <strong>Mfanelo Rikhotso</strong>, <strong>Luis Abernethy</strong>, and <strong>Tristan Jacobsen</strong> with one goal: craft an environment where raw talent meets world-class resources, turning underground visionaries into chart‑topping trailblazers.</p>
+
+    <p>At the heart of our academy is a belief that <strong>the youth represent the future of music</strong>. Talent alone isn’t enough. That’s why we prioritise structure, discipline, and authenticity—because <strong>too many people sit on their gifts</strong>. Here, we live up to our potential and always aim higher.</p>
+
+    <p>While many artists come through our academy, we also sign raw talent on sight. We’re still underrated—but not for long. Dior Lifestyle is building legacies through collaboration, partnerships, and a relentless pursuit of greatness.</p>
+
+    <h2>What We Offer</h2>
+    <table>
+      <tr><th>Academy</th><th>Record Label</th></tr>
+      <tr>
+        <td>
+          <ul>
+            <li>Hands‑on training in production, songwriting, performance</li>
+            <li>Workshops on branding, music theory, live stage control</li>
+            <li>Mentorship from industry experts & in‑house pros</li>
+            <li>Access to state‑of‑the‑art studios & creative labs</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Direct artist signings for exceptional talent</li>
+            <li>Full production, mixing, and mastering support</li>
+            <li>Distribution on all major platforms</li>
+            <li>Data‑driven marketing & brand‑growth strategy</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+
+    <h2>Our Vision</h2>
+    <p>We believe in <strong>real stories, real music, real growth</strong>. Our vision: push our artists into the spotlight and build a community that thrives on collaboration and innovation. Whether you’re an artist, producer, or creative visionary—<strong>Dior Lifestyle Records</strong> is where ambition becomes legacy.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 DIOR Lifestyle Records. Built by Khakhu Junior Nemamilwe.</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    document.addEventListener('DOMContentLoaded',()=>{
+      const reveals=document.querySelectorAll('.reveal');
+      const obs=new IntersectionObserver((entries,observer)=>{
+        entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('show'); observer.unobserve(entry.target);} });
+      },{threshold:0.15});
+      reveals.forEach(r=>obs.observe(r));
+    });
+  </script>
+</body>
+</html>

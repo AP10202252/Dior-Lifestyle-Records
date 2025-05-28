@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What We Do | DIOR Lifestyle Records</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      font-family: 'Goldman', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fafafa;
+      color: #222;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 20;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Hero Section with floating triangles */
+    .hero {
+      background: linear-gradient(135deg, #fff 0%, #fafafa 40%, #f0f0f0 100%);
+      color: #222;
+      padding: 80px 20px 100px;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+      overflow: visible;
+    }
+
+    /* Triangles container inside hero */
+    .hero .floating-triangles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: visible;
+    }
+
+    /* The triangles */
+    .floating-triangles .triangle {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      opacity: 0.15;
+      animation: floatUpDown ease-in-out infinite alternate;
+    }
+
+    /* Different sized dark grey triangles */
+    .triangle1 {
+      border-width: 60px 52px 0 52px; /* height and base of triangle */
+      border-color: #444 transparent transparent transparent;
+      top: 20%;
+      left: 10%;
+      animation-duration: 6s;
+    }
+
+    .triangle2 {
+      border-width: 80px 70px 0 70px;
+      border-color: #555 transparent transparent transparent;
+      top: 50%;
+      right: 15%;
+      animation-duration: 7.5s;
+    }
+
+    .triangle3 {
+      border-width: 40px 35px 0 35px;
+      border-color: #333 transparent transparent transparent;
+      bottom: 15%;
+      left: 35%;
+      animation-duration: 5s;
+    }
+
+    .triangle4 {
+      border-width: 70px 60px 0 60px;
+      border-color: #555 transparent transparent transparent;
+      bottom: 30%;
+      right: 30%;
+      animation-duration: 8s;
+    }
+
+    @keyframes floatUpDown {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(20px);
+      }
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin: 0 0 15px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      position: relative;
+      z-index: 10;
+    }
+
+    .services {
+      max-width: 1100px;
+      margin: 60px auto 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 30px 25px;
+      text-align: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+      z-index: 10;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card:nth-child(1):hover {
+      box-shadow: 0 0 15px 5px rgba(255, 111, 97, 0.7);
+    }
+
+    .card:nth-child(2):hover {
+      box-shadow: 0 0 15px 5px rgba(108, 99, 255, 0.7);
+    }
+
+    .card:nth-child(3):hover {
+      box-shadow: 0 0 15px 5px rgba(255, 217, 61, 0.7);
+    }
+
+    .card:nth-child(4):hover {
+      box-shadow: 0 0 15px 5px rgba(61, 220, 151, 0.7);
+    }
+
+    .card:nth-child(5):hover {
+      box-shadow: 0 0 15px 5px rgba(255, 140, 0, 0.7);
+    }
+
+    .card:nth-child(6):hover {
+      box-shadow: 0 0 15px 5px rgba(0, 153, 255, 0.7);
+    }
+
+    .card span {
+      font-size: 2rem;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo">DIOR LIFESTYLE RECORDS</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="what-we-do.html">What We Do</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="get-enrolled.html">Get Enrolled</a></li>
+        <li><a href="studios.html">Studios</a></li>
+        <li><a href="our-artists.html">Our Artists</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1>What We Do</h1>
+    <p>From raw inspiration to global distribution, we arm artists with elite training, world-class facilities, and a business blueprint engineered for long-term success.</p>
+
+    <!-- Floating dark grey triangles inside hero -->
+    <div class="floating-triangles" aria-hidden="true">
+      <div class="triangle triangle1"></div>
+      <div class="triangle triangle2"></div>
+      <div class="triangle triangle3"></div>
+      <div class="triangle triangle4"></div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICE GRID ===== -->
+  <section class="services">
+    <div class="card">
+      <span>🎛️</span>
+      <h3>Music Production&nbsp;Lab</h3>
+      <p>Learn sound-design, sampling, and advanced DAW workflows in our fully equipped studio pods.</p>
+    </div>
+
+    <div class="card">
+      <span>✍🏽</span>
+      <h3>Songwriting&nbsp;Workshops</h3>
+      <p>Daily writing rooms and top-line clinics refine your storytelling, melody crafting, and hook science.</p>
+    </div>
+
+    <div class="card">
+      <span>🎙️</span>
+      <h3>Recording&nbsp;Bootcamps</h3>
+      <p>Intensive sessions that drill mic technique, vocal stacking, and live-tracking under real studio pressure.</p>
+    </div>
+
+    <div class="card">
+      <span>🎓</span>
+      <h3>Industry Mentorship</h3>
+      <p>One-on-one guidance from label execs, A&Rs, and platinum producers to navigate deals and branding.</p>
+    </div>
+
+    <div class="card">
+      <span>🔥</span>
+      <h3>Performance Coaching</h3>
+      <p>Stage presence, crowd control, and show-track rehearsals in our 150-seat showcase theater.</p>
+    </div>
+
+    <div class="card">
+      <span>🚀</span>
+      <h3>Marketing & Distribution</h3>
+      <p>Get your music heard globally through strategic campaigns and label-backed digital rollouts.</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 DIOR Lifestyle Records. All Rights Reserved.
+  </footer>
+</body>
+</html>
