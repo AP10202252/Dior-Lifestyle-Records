@@ -7,7 +7,6 @@
   <title>Portfolio | DIOR Lifestyle Records</title>
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Page-specific styles — move to style.css when ready -->
   <style>
     body {
       font-family: 'Goldman', sans-serif;
@@ -45,7 +44,6 @@
       font-weight: bold;
     }
 
-    /* hero */
     .hero {
       background: linear-gradient(135deg, #000 0%, #1b1b1b 40%, #2a2a2a 100%);
       color: #fff;
@@ -67,76 +65,6 @@
       line-height: 1.6;
     }
 
-    /* Floating triangle shapes */
-    .floating-shape {
-      position: absolute;
-      width: 0;
-      height: 0;
-      opacity: 0.15;
-      pointer-events: none;
-      animation: floatUpDown 6s ease-in-out infinite;
-    }
-
-    .floating-shape.small {
-      border-left: 20px solid transparent;
-      border-right: 20px solid transparent;
-      border-bottom: 35px solid #fff;
-      animation-duration: 7s;
-    }
-
-    .floating-shape.medium {
-      border-left: 30px solid transparent;
-      border-right: 30px solid transparent;
-      border-bottom: 50px solid #ddd;
-      animation-duration: 5.5s;
-    }
-
-    .floating-shape.large {
-      border-left: 45px solid transparent;
-      border-right: 45px solid transparent;
-      border-bottom: 75px solid #bbb;
-      animation-duration: 8s;
-    }
-
-    .shape1 { top: 10%; left: 15%; animation-delay: 0s; }
-    .shape2 { top: 40%; right: 20%; animation-delay: 1.5s; }
-    .shape3 { top: 70%; left: 50%; animation-delay: 3s; }
-    .shape4 { top: 25%; right: 50%; animation-delay: 4.5s; }
-    .shape5 { top: 60%; left: 75%; animation-delay: 2.5s; }
-
-    @keyframes floatUpDown {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    /* filter buttons */
-    .filters {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin: -60px auto 40px;
-      padding: 0 20px;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      background: #fff;
-      border: none;
-      border-radius: 30px;
-      padding: 10px 22px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
-      transition: .25s;
-    }
-
-    .filter-btn.active,
-    .filter-btn:hover {
-      background: #000;
-      color: #fff;
-      transform: translateY(-2px);
-    }
-
     /* gallery grid */
     .gallery {
       max-width: 1200px;
@@ -153,6 +81,7 @@
       border-radius: 18px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
       transition: transform .3s;
+      cursor: pointer;
     }
 
     .item:hover {
@@ -185,6 +114,41 @@
       padding: 25px 20px;
       font-size: .9rem;
     }
+
+    /* Lightbox overlay */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 25px;
+      right: 35px;
+      color: #fff;
+      font-size: 2rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -209,29 +173,12 @@
   <section class="hero">
     <h1>Portfolio</h1>
     <p>A glimpse at our platinum moments, behind-the-glass studio magic, and milestone releases from Kay Jay and the entire Dior Lifestyle roster.</p>
-
-    <!-- Floating triangle shapes -->
-    <div class="floating-shape small shape1"></div>
-    <div class="floating-shape medium shape2"></div>
-    <div class="floating-shape large shape3"></div>
-    <div class="floating-shape medium shape4"></div>
-    <div class="floating-shape small shape5"></div>
   </section>
-
-  <!-- ===== FILTER BUTTONS ===== -->
-  <div class="filters">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="singles">Singles</button>
-    <button class="filter-btn" data-filter="albums">Albums</button>
-    <button class="filter-btn" data-filter="sessions">Studio Sessions</button>
-    <button class="filter-btn" data-filter="live">Live Performances</button>
-    <button class="filter-btn" data-filter="video">Music Videos</button>
-  </div>
 
   <!-- ===== GALLERY ===== -->
   <section class="gallery" id="gallery">
     <div class="item singles">
-      <img src="images/outsider.jpeg" alt="Cover art - WAR single">
+      <a href="#img1"><img src="images/outsider.jpeg" alt="Cover art - WAR single"></a>
       <span class="tag">Singles</span>
     </div>
 
@@ -241,41 +188,45 @@
     </div>
 
     <div class="item sessions">
-      <img src="images/session.png" alt="Studio session">
+      <a href="#img2"><img src="images/session.png" alt="Studio session"></a>
       <span class="tag">Studio Session</span>
     </div>
 
     <div class="item albums">
-      <img src="images/darkplace.jpeg" alt="Album artwork">
+      <a href="#img3"><img src="images/darkplace.jpeg" alt="Album artwork"></a>
       <span class="tag">Album</span>
     </div>
 
     <div class="item live">
-      <img src="images/liveperf.jpg" alt="Live performance">
+      <a href="#img4"><img src="images/liveperf.jpg" alt="Live performance"></a>
       <span class="tag">Live</span>
     </div>
   </section>
+
+  <!-- ===== LIGHTBOX OVERLAYS ===== -->
+  <div id="img1" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="images/outsider.jpeg" alt="Cover art - WAR single">
+  </div>
+
+  <div id="img2" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="images/session.png" alt="Studio session">
+  </div>
+
+  <div id="img3" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="images/darkplace.jpeg" alt="Album artwork">
+  </div>
+
+  <div id="img4" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="images/liveperf.jpg" alt="Live performance">
+  </div>
 
   <!-- ===== FOOTER ===== -->
   <footer>
     <p>&copy; 2025 DIOR Lifestyle Records. Built by Khakhu Junior Nemamilwe.</p>
   </footer>
-
-  <!-- ===== FILTER SCRIPT ===== -->
-  <script>
-    const buttons = document.querySelectorAll('.filter-btn');
-    const items = document.querySelectorAll('.item');
-
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        items.forEach(it => {
-          it.style.display = (filter === 'all' || it.classList.contains(filter)) ? 'block' : 'none';
-        });
-      });
-    });
-  </script>
 </body>
 </html>
