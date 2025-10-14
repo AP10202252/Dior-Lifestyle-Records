@@ -40,17 +40,18 @@
     nav a:hover { opacity:.7; }
 
     /* ===== Hero ===== */
-    .hero {
-      position: relative;
-      text-align: center;
-      padding: 100px 20px 80px;
-      background:#f4f4f4;
-      overflow:hidden;
-    }
-    .hero h1 { font-size:2.8rem; margin-bottom:18px; }
-    .hero p  { font-size:1.25rem; max-width:750px; margin:0 auto 28px; line-height:1.6; }
-    .cta-btn { background:#000; color:#fff; padding:14px 32px; font-weight:bold; border-radius:8px; text-decoration:none; transition:transform .25s; }
-    .cta-btn:hover { transform:translateY(-3px); }
+   .hero {
+  position: relative;
+  text-align: center;
+  padding: 100px 20px 80px;
+  background: #f4f4f4;
+  overflow: hidden;
+  width: 100vw; /* makes it full viewport width */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
 
     /* Watermark */
     .hero-watermark {
