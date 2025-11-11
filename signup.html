@@ -135,15 +135,26 @@
     });
 
     btn.addEventListener('click', async () => {
-      msg.style.display = 'none';
-      try {
-        await signup(emailEl.value.trim(), passEl.value);
-        // redirect handled by onAuthChange
-      } catch (e) {
-        msg.style.display = 'block';
-        msg.textContent = e.message || 'Signup failed';
-      }
-    });
+  msg.style.display = 'none';
+  try {
+    await login(emailEl.value.trim(), passEl.value);
+
+    // ✅ Add this: sync login state to localStorage
+    localStorage.setItem('userLoggedIn', 'true');
+
+    // Optional: save user's name/email for a welcome message
+    const user = firebase.auth().currentUser; // assuming Firebase
+    if(user){
+      localStorage.setItem('userName', user.displayName || user.email);
+    }
+
+    // redirect is handled by onAuthChange
+  } catch (e) {
+    msg.style.display = 'block';
+    msg.textContent = e.message || 'Login failed';
+  }
+});
+
   </script>
 </body>
 </html>

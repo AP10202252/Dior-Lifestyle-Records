@@ -225,6 +225,7 @@
 
   <!-- ===== FLOATING BUTTONS ===== -->
   <div class="floating-buttons">
+    <div id="userStatus" style="color:#fff; margin-bottom:8px; font-weight:bold;"></div>
     <a href="login.html" class="fab" id="loginBtn">Login</a>
     <a href="signup.html" class="fab" id="signupBtn">Sign Up</a>
     <a href="#" class="fab" id="logoutBtn" style="display:none;">Logout</a>
@@ -244,37 +245,45 @@
       }, {threshold: 0.15});
       reveals.forEach(r => obs.observe(r));
     });
+</script>
 
-    // Floating buttons logic
-    document.addEventListener('DOMContentLoaded', () => {
-      const loginBtn = document.getElementById('loginBtn');
-      const signupBtn = document.getElementById('signupBtn');
-      const logoutBtn = document.getElementById('logoutBtn');
+   <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const loginBtn = document.getElementById('loginBtn');
+  const signupBtn = document.getElementById('signupBtn');
+  const logoutBtn = document.getElementById('logoutBtn');
+  const userStatus = document.getElementById('userStatus'); // optional welcome message
 
-      // Check login state from localStorage
-      function updateButtons() {
-        const userLoggedIn = localStorage.getItem('userLoggedIn') === 'true';
-        if(userLoggedIn){
-          loginBtn.style.display = 'none';
-          signupBtn.style.display = 'none';
-          logoutBtn.style.display = 'inline-block';
-        } else {
-          loginBtn.style.display = 'inline-block';
-          signupBtn.style.display = 'inline-block';
-          logoutBtn.style.display = 'none';
-        }
-      }
+  const userLoggedIn = localStorage.getItem('userLoggedIn') === 'true';
 
-      // Initial update
-      updateButtons();
+  if(userLoggedIn){
+    loginBtn.style.display = 'none';
+    signupBtn.style.display = 'none';
+    logoutBtn.style.display = 'inline-block';
 
-      // Logout click
-      logoutBtn.addEventListener('click', () => {
-        localStorage.removeItem('userLoggedIn'); // Log out
-        updateButtons();
-      });
-    });
-  </script>
+    const userName = localStorage.getItem('userName');
+    if(userName){
+      userStatus.textContent = `Welcome, ${userName}!`;
+    }
+  } else {
+    loginBtn.style.display = 'inline-block';
+    signupBtn.style.display = 'inline-block';
+    logoutBtn.style.display = 'none';
+    userStatus.textContent = '';
+  }
+
+  logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('userLoggedIn');
+    localStorage.removeItem('userName');
+    loginBtn.style.display = 'inline-block';
+    signupBtn.style.display = 'inline-block';
+    logoutBtn.style.display = 'none';
+    userStatus.textContent = '';
+  });
+});
+</script>
+
+  
 
 </body>
 </html>

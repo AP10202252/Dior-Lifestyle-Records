@@ -282,35 +282,46 @@
 
  <!-- ===== FLOATING BUTTONS ===== -->
   <div class="floating-buttons">
+    <div id="userStatus" style="color:#fff; margin-bottom:8px; font-weight:bold;"></div>
     <a href="login.html" class="fab" id="loginBtn">Login</a>
     <a href="signup.html" class="fab" id="signupBtn">Sign Up</a>
     <a href="#" class="fab" id="logoutBtn" style="display:none;">Logout</a>
   </div>
 
-<script type="module">
-  import { onAuthChange, logout } from './auth.js';
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const loginBtn = document.getElementById('loginBtn');
+  const signupBtn = document.getElementById('signupBtn');
+  const logoutBtn = document.getElementById('logoutBtn');
+  const userStatus = document.getElementById('userStatus'); // optional welcome message
 
-  const loginButtons = document.getElementById('login-buttons'); // container with login/signup
-  const logoutButton = document.getElementById('logout-button'); // your logout btn
+  const userLoggedIn = localStorage.getItem('userLoggedIn') === 'true';
 
-  // Listen for auth state changes
-  onAuthChange((user) => {
-    if (user) {
-      if (loginButtons) loginButtons.style.display = 'none';
-      if (logoutButton) logoutButton.style.display = 'block';
-    } else {
-      if (loginButtons) loginButtons.style.display = 'flex';
-      if (logoutButton) logoutButton.style.display = 'none';
+  if(userLoggedIn){
+    loginBtn.style.display = 'none';
+    signupBtn.style.display = 'none';
+    logoutBtn.style.display = 'inline-block';
+
+    const userName = localStorage.getItem('userName');
+    if(userName){
+      userStatus.textContent = `Welcome, ${userName}!`;
     }
-  });
-
-  // Logout handler
-  if (logoutButton) {
-    logoutButton.addEventListener('click', async () => {
-      await logout();
-      window.location.href = 'index.html';
-    });
+  } else {
+    loginBtn.style.display = 'inline-block';
+    signupBtn.style.display = 'inline-block';
+    logoutBtn.style.display = 'none';
+    userStatus.textContent = '';
   }
+
+  logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('userLoggedIn');
+    localStorage.removeItem('userName');
+    loginBtn.style.display = 'inline-block';
+    signupBtn.style.display = 'inline-block';
+    logoutBtn.style.display = 'none';
+    userStatus.textContent = '';
+  });
+});
 </script>
 
 
