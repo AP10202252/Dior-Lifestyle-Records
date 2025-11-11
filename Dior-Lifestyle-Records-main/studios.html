@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
+   <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Studios | DIOR Lifestyle Records</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* === Base === */
+    body { font-family: 'Goldman', sans-serif; margin:0; color:#111; background:#fff; overflow-x:hidden; }
+    header { background:#111; padding:20px 30px; display:flex; justify-content:space-between; align-items:center; color:#fff; position:sticky; top:0; z-index:999; }
+    .logo { font-size:1.6rem; font-weight:bold; }
+    nav ul { list-style:none; display:flex; gap:18px; margin:0; padding:0; }
+    nav a { color:#fff; text-decoration:none; transition:opacity .25s; }
+    nav a:hover { opacity:.7; }
+
+    /* === Hero === */
+    .hero { position:relative; text-align:center; padding:110px 20px 90px; background:#f4f4f4; overflow:hidden; }
+    .hero h1 { font-size:2.8rem; margin-bottom:18px; }
+    .hero p  { max-width:800px; margin:0 auto 26px; font-size:1.2rem; line-height:1.6; }
+    .cta-btn { background:#000; color:#fff; padding:14px 32px; border-radius:8px; text-decoration:none; font-weight:bold; transition:transform .25s; }
+    .cta-btn:hover { transform:translateY(-3px); }
+
+    /* Floating icons */
+    .float-note { position:absolute; font-size:120px; color:rgba(0,0,0,0.04); animation:note 40s linear infinite; }
+    .float-note.one { top:20%; left:5%; }
+    .float-note.two { top:75%; left:85%; animation-delay:-10s; }
+    @keyframes note { 0%{ transform:rotate(0deg) translateY(0);} 50%{ transform:rotate(180deg) translateY(-30px);} 100%{ transform:rotate(360deg) translateY(0);} }
+
+    /* === Gallery Grid === */
+    .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; max-width:1200px; margin:60px auto; padding:0 20px; }
+    .gallery img { width:100%; border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,0.1); transition:transform .3s; }
+    .gallery img:hover { transform:translateY(-6px); }
+
+    /* === Equipment Section === */
+    .equipment { background:#f9f9f9; padding:60px 20px; }
+    .equipment h2 { text-align:center; font-size:1.9rem; margin-bottom:24px; }
+    .equipment-list { max-width:900px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px; }
+    .equipment-list li { background:#fff; border-radius:12px; padding:14px 18px; box-shadow:0 4px 14px rgba(0,0,0,0.07); }
+
+    /* === Footer === */
+    footer { background:#111; color:#fff; text-align:center; padding:24px 20px; margin-top:60px; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">DIOR LIFESTYLE RECORDS</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="what-we-do.html">What We Do</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="get-enrolled.html">Get Enrolled</a></li>
+        <li><a href="studios.html">Studios</a></li>
+        <li><a href="our-artists.html">Our Artists</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <span class="float-note one">🎵</span>
+    <span class="float-note two">🎚️</span>
+    <h1>Our Studios</h1>
+    <p>Step inside the sonic playground where hits are born. Each suite is purpose‑built with top‑tier gear, perfect acoustics, and a vibe that sparks creativity.</p>
+    <a href="get-enrolled.html" class="cta-btn">Book a Session</a>
+  </section>
+
+  <!-- Gallery -->
+<div class="gallery">
+  <img src="images/studio1.jpg" alt="Studio A – Hybrid Production Suite" />
+  <img src="images/studio2.jpg" alt="Studio B – Vocal Tracking Room" />
+  <img src="images/studio3.jpg" alt="Studio C – Mixing & Mastering Lab" />
+  <img src="images/studio4.jpg" alt="Live Room – Drum & Band Setup" />
+</div>
+
+
+  <!-- Equipment & Features -->
+  <section class="equipment">
+    <h2>Gear Highlights & Room Features</h2>
+    <ul class="equipment-list">
+      <li>Neumann U87 & Shure SM7B microphones</li>
+      <li>SSL AWS 948 Delta analogue console</li>
+      <li>Yamaha HS8 & Adam A7X monitoring</li>
+      <li>Universal Audio Apollo x8p interfaces</li>
+      <li>Moog Sub 37 & Prophet Rev2 synths</li>
+      <li>Avid HDX system with Pro Tools Ultimate</li>
+      <li>Roland V‑Drums & Fender Deluxe amps</li>
+      <li>Acoustic treatment by Vicoustic panels</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 DIOR Lifestyle Records. Built by Khakhu Junior Nemamilwe.</p>
+  </footer>
+</body>
+
+<!-- ===== FLOATING BUTTONS ===== -->
+<div class="fab-container">
+  <a href="login.html" class="fab-login">Login</a>
+  <a href="signup.html" class="fab-signup">Sign Up</a>
+</div>
+
+
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
+   <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | DIOR Lifestyle Records</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Page-specific styles — move to style.css when ready -->
+  <style>
+    body {
+      font-family: 'Goldman', sans-serif;
+      margin: 0;
+      color: #222;
+      background: #fafafa;
+    }
+
+    header {
+      background: #111;
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* hero */
+    .hero {
+      background: linear-gradient(135deg, #000 0%, #1b1b1b 40%, #2a2a2a 100%);
+      color: #fff;
+      text-align: center;
+      padding: 90px 20px 110px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      margin: 0 0 15px;
+      font-size: 2.6rem;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* Floating triangle shapes */
+    .floating-shape {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0.15;
+      pointer-events: none;
+      animation: floatUpDown 6s ease-in-out infinite;
+    }
+
+    .floating-shape.small {
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-bottom: 35px solid #fff;
+      animation-duration: 7s;
+    }
+
+    .floating-shape.medium {
+      border-left: 30px solid transparent;
+      border-right: 30px solid transparent;
+      border-bottom: 50px solid #ddd;
+      animation-duration: 5.5s;
+    }
+
+    .floating-shape.large {
+      border-left: 45px solid transparent;
+      border-right: 45px solid transparent;
+      border-bottom: 75px solid #bbb;
+      animation-duration: 8s;
+    }
+
+    .shape1 { top: 10%; left: 15%; animation-delay: 0s; }
+    .shape2 { top: 40%; right: 20%; animation-delay: 1.5s; }
+    .shape3 { top: 70%; left: 50%; animation-delay: 3s; }
+    .shape4 { top: 25%; right: 50%; animation-delay: 4.5s; }
+    .shape5 { top: 60%; left: 75%; animation-delay: 2.5s; }
+
+    @keyframes floatUpDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* filter buttons */
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: -60px auto 40px;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 22px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+      transition: .25s;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: #000;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* gallery grid */
+    .gallery {
+      max-width: 1200px;
+      margin: 0 auto 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 0 20px;
+    }
+
+    .item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+      transition: transform .3s;
+    }
+
+    .item:hover {
+      transform: translateY(-6px);
+    }
+
+    .item img,
+    .item iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .tag {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, .75);
+      color: #fff;
+      font-size: .75rem;
+      padding: 4px 10px;
+      border-radius: 12px;
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: .9rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo">DIOR LIFESTYLE RECORDS</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="what-we-do.html">What We Do</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="get-enrolled.html">Get Enrolled</a></li>
+        <li><a href="studios.html">Studios</a></li>
+        <li><a href="our-artists.html">Our Artists</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1>Portfolio</h1>
+    <p>A glimpse at our platinum moments, behind-the-glass studio magic, and milestone releases from Kay Jay and the entire Dior Lifestyle roster.</p>
+
+    <!-- Floating triangle shapes -->
+    <div class="floating-shape small shape1"></div>
+    <div class="floating-shape medium shape2"></div>
+    <div class="floating-shape large shape3"></div>
+    <div class="floating-shape medium shape4"></div>
+    <div class="floating-shape small shape5"></div>
+  </section>
+
+  <!-- ===== FILTER BUTTONS ===== -->
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="singles">Singles</button>
+    <button class="filter-btn" data-filter="albums">Albums</button>
+    <button class="filter-btn" data-filter="sessions">Studio Sessions</button>
+    <button class="filter-btn" data-filter="live">Live Performances</button>
+    <button class="filter-btn" data-filter="video">Music Videos</button>
+  </div>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="gallery" id="gallery">
+    <div class="item singles">
+      <img src="images/outsider.jpeg" alt="Cover art - WAR single">
+      <span class="tag">Singles</span>
+    </div>
+
+    <div class="item video">
+      <iframe src="https://www.youtube.com/embed/2lJ1zbITz0Q?si=1lYQtOzS1ADsHVIl" title="Music video" frameborder="0" allowfullscreen></iframe>
+      <span class="tag">Music Videos</span>
+    </div>
+
+    <div class="item sessions">
+      <img src="images/session.png" alt="Studio session">
+      <span class="tag">Studio Sessions</span>
+    </div>
+
+    <div class="item albums">
+      <img src="images/darkplace.jpeg" alt="Album artwork">
+      <span class="tag">Albums</span>
+    </div>
+
+    <div class="item live">
+      <img src="images/liveperf.jpg" alt="Live performance">
+      <span class="tag">Live</span>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; 2025 DIOR Lifestyle Records. Built by Khakhu Junior Nemamilwe.</p>
+  </footer>
+
+  <!-- ===== FILTER SCRIPT ===== -->
+  <script>
+    const buttons = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.item');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        items.forEach(it => {
+          it.style.display = (filter === 'all' || it.classList.contains(filter)) ? 'block' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+
+<!-- ===== FLOATING BUTTONS ===== -->
+<div class="fab-container">
+  <a href="login.html" class="fab-login">Login</a>
+  <a href="signup.html" class="fab-signup">Sign Up</a>
+</div>
+
+
+</html>

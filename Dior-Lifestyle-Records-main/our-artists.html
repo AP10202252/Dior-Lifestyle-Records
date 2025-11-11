@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
+   <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Artists | DIOR Lifestyle Records</title>
+
+  <style>
+    /* ===== BASE / GLOBAL ===== */
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Goldman',sans-serif;
+      background:#fafafa;             /* same as Portfolio / other light pages */
+      color:#222;
+    }
+    a{color:inherit;text-decoration:none}
+
+    /* ===== HEADER ===== */
+    header{
+      background:#111;color:#fff;
+      padding:15px 20px;
+      display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap
+    }
+    .logo{font-size:1.8rem;font-weight:bold}
+    nav ul{list-style:none;display:flex;gap:15px;flex-wrap:wrap}
+    nav a{color:#fff;font-weight:bold;transition:opacity .25s}
+    nav a:hover{opacity:.75}
+
+    /* ===== MAIN CONTENT WRAPPER ===== */
+    main{padding:80px 20px 100px;position:relative;overflow:hidden}
+
+    h1{
+      font-size:2.6rem;text-align:center;
+      margin-bottom:40px;color:#111
+    }
+
+    /* ===== ARTIST GRID ===== */
+    .artists-grid{
+      max-width:1100px;margin:0 auto;display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px;
+      position:relative;z-index:2   /* keep above floating shapes */
+    }
+    .artist-card{
+      background:#fff;border-radius:18px;
+      box-shadow:0 4px 12px rgba(0,0,0,.08);
+      padding:25px;text-align:center;transition:transform .3s,box-shadow .3s
+    }
+    .artist-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 8px 22px rgba(0,0,0,.12);
+    }
+    .artist-name{font-size:20px;margin-bottom:6px;font-weight:600}
+    .artist-role{color:#e600ff;font-size:14px;margin-bottom:14px}
+    .artist-bio{font-size:14px;color:#555;line-height:1.5}
+
+    /* ===== FLOATING TRIANGLES & DIAMONDS ===== */
+    .floating-shapes{
+      position:absolute;inset:0;
+      pointer-events:none;z-index:1   /* behind cards */
+    }
+    .shape{
+      position:absolute;opacity:.18;animation:float 18s ease-in-out infinite alternate;
+      filter:drop-shadow(0 0 4px rgba(0,0,0,.15));
+    }
+    /* up-pointing triangle */
+    .tri{
+      width:0;height:0;
+      border-left:22px solid transparent;
+      border-right:22px solid transparent;
+      border-bottom:40px solid #2c2c2c;
+    }
+    /* diamond (rotated square) */
+    .dia{
+      width:32px;height:32px;background:#2c2c2c;
+      transform:rotate(45deg);
+    }
+
+    /* placements & delays */
+    .s1{top:12%; left:10%; animation-delay:0s}
+    .s2{top:30%; left:80%; animation-delay:3s}
+    .s3{top:65%; left:20%; animation-delay:6s}
+    .s4{top:75%; left:70%; animation-delay:9s}
+    .s5{top:40%; left:45%; animation-delay:12s}
+
+    @keyframes float{
+      0%  {transform:translateY(0) rotate(0deg)}
+      100%{transform:translateY(-25px) rotate(360deg)}
+    }
+
+    /* ===== FOOTER ===== */
+    footer{
+      background:#111;color:#fff;text-align:center;
+      padding:24px 20px;font-size:.9rem;margin-top:60px
+    }
+
+    @media(max-width:600px){
+      h1{font-size:2rem}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo">DIOR LIFESTYLE RECORDS</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="what-we-do.html">What We Do</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="get-enrolled.html">Get Enrolled</a></li>
+        <li><a href="studios.html">Studios</a></li>
+        <li><a href="our-artists.html">Our Artists</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+    <!-- floating background shapes -->
+    <div class="floating-shapes" aria-hidden="true">
+      <div class="shape tri s1"></div>
+      <div class="shape dia s2"></div>
+      <div class="shape tri s3"></div>
+      <div class="shape dia s4"></div>
+      <div class="shape tri s5"></div>
+    </div>
+
+    <h1>Meet&nbsp;Our&nbsp;Artists</h1>
+
+    <div class="artists-grid">
+      <div class="artist-card">
+        <div class="artist-name">Kay Jay The Quiet Kid</div>
+        <div class="artist-role">Founder&nbsp;/&nbsp;Lyrical Prodigy</div>
+        <div class="artist-bio">Master of freestyle, soul-touching lyrics and timeless hooks. Visionary behind the academy.</div>
+      </div>
+
+      <div class="artist-card">
+        <div class="artist-name">OSA The Dealer man</div>
+        <div class="artist-role">Rapper&nbsp;/&nbsp;Writer, Producer</div>
+        <div class="artist-bio">Spits truth through bars and isn’t afraid to experiment with new flows. Hungry and humble.</div>
+      </div>
+
+      <div class="artist-card">
+        <div class="artist-name">MONST3R</div>
+        <div class="artist-role">Melodic Performer</div>
+        <div class="artist-bio">Heart-felt melodies with raw emotion. Every verse tells a real-life story from the come-up.</div>
+      </div>
+
+       <div class="artist-card">
+        <div class="artist-name">Kenin</div>
+        <div class="artist-role">Music prodicer</div>
+        <div class="artist-bio">Makes insane beats and is also a trapster mixing his own instrumentals and voice to make art.</div>
+      </div>
+
+       <div class="artist-card">
+        <div class="artist-name">B.dot4Teen</div>
+        <div class="artist-role">Conscious Rapper</div>
+        <div class="artist-bio">Straight vibes, hype energy but also conscious and heartfelt at times.</div>
+      </div>
+
+        <div class="artist-card">
+        <div class="artist-name">Younger G</div>
+        <div class="artist-role">Verbal Assassin</div>
+        <div class="artist-bio">Rapping machine, always down for a challenge and he isn't quick to let up.</div>
+      </div>
+      
+      <div class="artist-card">
+        <div class="artist-name">Smxsh G</div>
+        <div class="artist-role">Versatile Vibe Machine</div>
+        <div class="artist-bio">From trap bangers to smooth vibes — brings the energy every time he steps on the mic.</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    &copy; 2025 DIOR Lifestyle Records. Built by Khakhu Junior Nemamilwe.
+  </footer>
+</body>
+
+<!-- ===== FLOATING BUTTONS ===== -->
+<div class="fab-container">
+  <a href="login.html" class="fab-login">Login</a>
+  <a href="signup.html" class="fab-signup">Sign Up</a>
+</div>
+
+
+</html>
