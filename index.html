@@ -239,7 +239,6 @@
         entries.forEach(entry => {
           if(entry.isIntersecting){
             entry.target.classList.add('show');
-            observer.unobserve(entry.target);
           }
         });
       }, {threshold: 0.15});
@@ -252,25 +251,27 @@
       const signupBtn = document.getElementById('signupBtn');
       const logoutBtn = document.getElementById('logoutBtn');
 
-      // Check login state
-      const userLoggedIn = localStorage.getItem('userLoggedIn') === 'true';
-
-      if(userLoggedIn){
-        loginBtn.style.display = 'none';
-        signupBtn.style.display = 'none';
-        logoutBtn.style.display = 'inline-block';
-      } else {
-        loginBtn.style.display = 'inline-block';
-        signupBtn.style.display = 'inline-block';
-        logoutBtn.style.display = 'none';
+      // Check login state from localStorage
+      function updateButtons() {
+        const userLoggedIn = localStorage.getItem('userLoggedIn') === 'true';
+        if(userLoggedIn){
+          loginBtn.style.display = 'none';
+          signupBtn.style.display = 'none';
+          logoutBtn.style.display = 'inline-block';
+        } else {
+          loginBtn.style.display = 'inline-block';
+          signupBtn.style.display = 'inline-block';
+          logoutBtn.style.display = 'none';
+        }
       }
+
+      // Initial update
+      updateButtons();
 
       // Logout click
       logoutBtn.addEventListener('click', () => {
         localStorage.removeItem('userLoggedIn'); // Log out
-        loginBtn.style.display = 'inline-block';
-        signupBtn.style.display = 'inline-block';
-        logoutBtn.style.display = 'none';
+        updateButtons();
       });
     });
   </script>

@@ -4,57 +4,147 @@
   <meta charset="utf-8" />
   <title>Login — Dior Lifestyle Records</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <!-- Link to existing site CSS (keeps UI intact) -->
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    /* Small overrides to ensure forms look right while matching existing dark aesthetic */
-    .auth-wrapper { min-height:80vh; display:flex; align-items:center; justify-content:center; }
-    .auth-card { background: rgba(10,10,10,0.7); padding:28px; border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,0.6); width:360px; max-width:90%; }
-    .auth-card h2 { margin:0 0 12px 0; font-size:20px; color:#fff; text-align:center; }
-    .auth-card input { width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid rgba(255,255,255,0.08); background:transparent; color:#fff; }
-    .auth-card button { width:100%; padding:10px; margin-top:12px; border-radius:6px; border:none; cursor:pointer; }
-    .link-row { display:flex; justify-content:space-between; margin-top:8px; color:#bbb; font-size:14px; }
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Goldman', sans-serif;
+      margin: 0;
+    }
+
+    .auth-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #1a1a1a 0%, #000 100%);
+    }
+
+    .auth-card {
+      background: #151515;
+      padding: 36px 32px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7);
+      width: 360px;
+      max-width: 90%;
+      text-align: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .auth-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+    }
+
+    .auth-card h2 {
+      font-size: 22px;
+      margin-bottom: 24px;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    .auth-card input {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      border-radius: 8px;
+      border: 1px solid #333;
+      background-color: #1e1e1e;
+      color: #fff;
+      font-size: 14px;
+      transition: all 0.25s ease;
+    }
+
+    .auth-card input:focus {
+      border-color: #888;
+      outline: none;
+      background-color: #222;
+    }
+
+    .auth-card button {
+      width: 100%;
+      padding: 12px;
+      background-color: #2c2c2c;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .auth-card button:hover {
+      background-color: #3a3a3a;
+      transform: translateY(-1px);
+    }
+
+    .link-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
+      font-size: 14px;
+    }
+
+    .link-row a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .link-row a:hover {
+      color: #fff;
+    }
+
+    #msg {
+      color: #ff5c5c;
+      margin-top: 12px;
+      display: none;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
-  <!-- keep existing floating shapes by not removing site wrappers -->
   <div class="auth-wrapper">
     <div class="auth-card">
-      <h2>Welcome back</h2>
+      <h2>Welcome Back</h2>
       <input id="email" type="email" placeholder="Email" autocomplete="username" />
       <input id="password" type="password" placeholder="Password" autocomplete="current-password" />
       <button id="loginBtn">Log In</button>
       <div class="link-row">
-        <a href="signup.html">Create account</a>
-        <a href="/">Back to site</a>
+        <a href="signup.html">Create Account</a>
+        <a href="index.html">Back to Site</a>
       </div>
-      <p id="msg" style="color:#ff6666;margin-top:10px;display:none"></p>
+      <p id="msg"></p>
     </div>
   </div>
 
   <script type="module">
     import { login, onAuthChange, isAdminUser } from './assets/js/auth.js';
-    // simple login flow
+
     const emailEl = document.getElementById('email');
     const passEl = document.getElementById('password');
     const btn = document.getElementById('loginBtn');
     const msg = document.getElementById('msg');
 
+    // redirect when user is already logged in
+    onAuthChange(user => {
+      if (!user) return;
+      if (isAdminUser(user)) {
+        location.href = 'admin-dashboard.html';
+      } else {
+        location.href = 'index.html';
+      }
+    });
+
     btn.addEventListener('click', async () => {
-      msg.style.display='none';
+      msg.style.display = 'none';
       try {
         await login(emailEl.value.trim(), passEl.value);
-        // redirect based on role
-        onAuthChange(user => {
-          if (!user) return;
-          if (isAdminUser(user)) {
-            location.href = 'admin-dashboard.html';
-          } else {
-            location.href = '/';
-          }
-        });
+        // redirect handled by onAuthChange
       } catch (e) {
-        msg.style.display='block';
+        msg.style.display = 'block';
         msg.textContent = e.message || 'Login failed';
       }
     });

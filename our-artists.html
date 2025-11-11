@@ -190,35 +190,32 @@
     <a href="#" class="fab" id="logoutBtn" style="display:none;">Logout</a>
   </div>
 
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Get the floating buttons
-    const loginBtn = document.getElementById('loginBtn');
-    const signupBtn = document.getElementById('signupBtn');
-    const logoutBtn = document.getElementById('logoutBtn');
+ <script type="module">
+  import { onAuthChange, logout } from './auth.js';
 
-    // Check if user is logged in
-    const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+  const loginButtons = document.getElementById('login-buttons'); // container with login/signup
+  const logoutButton = document.getElementById('logout-button'); // your logout btn
 
-    // Update button visibility based on login state
-    if (isLoggedIn) {
-      loginBtn.style.display = 'none';
-      signupBtn.style.display = 'none';
-      logoutBtn.style.display = 'block';
+  // Listen for auth state changes
+  onAuthChange((user) => {
+    if (user) {
+      if (loginButtons) loginButtons.style.display = 'none';
+      if (logoutButton) logoutButton.style.display = 'block';
     } else {
-      loginBtn.style.display = 'block';
-      signupBtn.style.display = 'block';
-      logoutBtn.style.display = 'none';
+      if (loginButtons) loginButtons.style.display = 'flex';
+      if (logoutButton) logoutButton.style.display = 'none';
     }
-
-    // Logout logic
-    logoutBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      localStorage.removeItem('loggedIn'); // remove login state
-      window.location.href = 'index.html'; // redirect to homepage
-    });
   });
+
+  // Logout handler
+  if (logoutButton) {
+    logoutButton.addEventListener('click', async () => {
+      await logout();
+      window.location.href = 'index.html';
+    });
+  }
 </script>
+
 
 
 </body>
