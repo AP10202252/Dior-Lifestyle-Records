@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Admin Dashboard — Dior Lifestyle Records</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body { background:#050505; color:#ddd; font-family:inherit; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; padding:18px 24px; background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent); box-shadow:0 6px 18px rgba(0,0,0,0.6); }
+    .container { padding:28px; }
+    .card { background: rgba(10,10,10,0.6); padding:18px; border-radius:12px; margin-bottom:16px; }
+    table { width:100%; border-collapse:collapse; }
+    th, td { padding:10px; text-align:left; border-bottom:1px solid rgba(255,255,255,0.04); font-size:14px; }
+    .logout-btn { background:#ff4d4f; color:#fff; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div><strong>Dior Lifestyle — Admin</strong></div>
+    <div>
+      <button id="logout" class="logout-btn">Logout</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <h3>Registered users <span id="userCount"></span></h3>
+      <div style="overflow:auto; max-height:220px;">
+        <table id="usersTable"><thead><tr><th>Email</th><th>Created At</th></tr></thead><tbody></tbody></table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Formspree submissions</h3>
+      <div style="overflow:auto; max-height:320px;">
+        <table id="formsTable"><thead><tr><th>Submitted At</th><th>Data</th></tr></thead><tbody></tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { onAuthChange, isAdminUser, logout, fetchRegisteredUsers } from './assets/js/auth.js';
+    // Formspree form endpoint (readonly)
+    const FORMSPREE_API = 'https://formspree.io/f/mgvkgzdr';
+
+    const userCountEl = document.getElementById('userCount');
+    const usersTable = document.querySelector('#usersTable tbody');
+    const formsTable = document.querySelector('#formsTable tbody');
+    const logoutBtn = document.getElementById('logout');
+
+    logoutBtn.addEventListener('click', async () => {
+      await logout();
+      location.href = 'login.html';
+    });
+
+    // Protect page
+    onAuthChange(async (user) => {
+      if (!user) {
+        location.href = 'login.html';
+        return;
+      }
+      if (!isAdminUser(user)) {
+        alert('Access denied: admin only');
+        location.href = '/';
+        return;
+      }
+      // load users
+      const users = await fetchRegisteredUsers();
+      userCountEl.textContent = `(${users.length})`;
+      usersTable.innerHTML = '';
+      users.sort((a,b)=> (a.createdAt||'').localeCompare(b.createdAt||''));
+      users.forEach(u=>{
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${u.email||''}</td><td>${u.createdAt?new Date(u.createdAt).toLocaleString():''}</td>`;
+        usersTable.appendChild(tr);
+      });
+
+      // fetch formspree submissions
+      try {
+        // Formspree public submissions endpoint (requires form to allow access)
+        const res = await fetch(FORMSPREE_API + '/submissions', { method: 'GET' });
+        if (!res.ok) throw new Error('Could not fetch submissions');
+        const data = await res.json();
+        formsTable.innerHTML = '';
+        (data || []).forEach(item=>{
+          const tr = document.createElement('tr');
+          const submittedAt = item.submitted_at || item.created_at || '';
+          tr.innerHTML = `<td>${submittedAt}</td><td><pre style="white-space:pre-wrap;">${JSON.stringify(item, null, 2)}</pre></td>`;
+          formsTable.appendChild(tr);
+        });
+      } catch (e) {
+        formsTable.innerHTML = '<tr><td colspan="2">Could not load submissions — check Formspree plan / CORS / public access.</td></tr>';
+        console.warn(e);
+      }
+    });
+  </script>
+</body>
+</html>

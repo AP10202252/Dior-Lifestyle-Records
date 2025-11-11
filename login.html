@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Login — Dior Lifestyle Records</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- Link to existing site CSS (keeps UI intact) -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Small overrides to ensure forms look right while matching existing dark aesthetic */
+    .auth-wrapper { min-height:80vh; display:flex; align-items:center; justify-content:center; }
+    .auth-card { background: rgba(10,10,10,0.7); padding:28px; border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,0.6); width:360px; max-width:90%; }
+    .auth-card h2 { margin:0 0 12px 0; font-size:20px; color:#fff; text-align:center; }
+    .auth-card input { width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid rgba(255,255,255,0.08); background:transparent; color:#fff; }
+    .auth-card button { width:100%; padding:10px; margin-top:12px; border-radius:6px; border:none; cursor:pointer; }
+    .link-row { display:flex; justify-content:space-between; margin-top:8px; color:#bbb; font-size:14px; }
+  </style>
+</head>
+<body>
+  <!-- keep existing floating shapes by not removing site wrappers -->
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <h2>Welcome back</h2>
+      <input id="email" type="email" placeholder="Email" autocomplete="username" />
+      <input id="password" type="password" placeholder="Password" autocomplete="current-password" />
+      <button id="loginBtn">Log In</button>
+      <div class="link-row">
+        <a href="signup.html">Create account</a>
+        <a href="/">Back to site</a>
+      </div>
+      <p id="msg" style="color:#ff6666;margin-top:10px;display:none"></p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { login, onAuthChange, isAdminUser } from './assets/js/auth.js';
+    // simple login flow
+    const emailEl = document.getElementById('email');
+    const passEl = document.getElementById('password');
+    const btn = document.getElementById('loginBtn');
+    const msg = document.getElementById('msg');
+
+    btn.addEventListener('click', async () => {
+      msg.style.display='none';
+      try {
+        await login(emailEl.value.trim(), passEl.value);
+        // redirect based on role
+        onAuthChange(user => {
+          if (!user) return;
+          if (isAdminUser(user)) {
+            location.href = 'admin-dashboard.html';
+          } else {
+            location.href = '/';
+          }
+        });
+      } catch (e) {
+        msg.style.display='block';
+        msg.textContent = e.message || 'Login failed';
+      }
+    });
+  </script>
+</body>
+</html>
