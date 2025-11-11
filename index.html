@@ -11,10 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Home | DIOR Lifestyle Records</title>
-  <link rel="stylesheet" href="style.css"/>
+ <link rel="stylesheet" href="style.css">
   <style>
-
-  
     /* ===== Base ===== */
     body {
       font-family: 'Goldman', sans-serif;
@@ -101,6 +99,31 @@
     /* Scroll reveal */
     .reveal{ opacity:0; transform:translateY(25px); transition:opacity .6s ease-out, transform .6s ease-out; }
     .reveal.show{ opacity:1; transform:translateY(0); }
+
+    /* ===== Floating buttons ===== */
+    .floating-buttons {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 9999;
+    }
+    .floating-buttons .fab {
+      padding: 14px 22px;
+      background: #2c2c2c;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 50px;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.25s;
+    }
+    .floating-buttons .fab:hover {
+      transform: translateY(-3px);
+    }
   </style>
 </head>
 <body>
@@ -138,105 +161,119 @@
 
   <!-- ===== FEATURE VIDEO ===== -->
   <section class="feature-video section-pad reveal">
-  
     <iframe src="https://www.youtube.com/embed/TdLLCbenJSE?si=uTUq0zAlmcvigK5m" title="Promo Video" frameborder="0" allowfullscreen></iframe>
   </section>
 
   <!-- ===== MISSION ===== -->
-<section class="mission section-pad reveal">
-  <h2>Our Mission</h2>
-  <p>
-    <strong>DIOR Lifestyle Records</strong> exists to nurture, develop, and elevate the next generation of iconic artists and visionary hit-makers. We are more than just a record label — we are a <strong>movement</strong>, a <em>creative sanctuary</em>, and a <strong>launchpad</strong> for raw talent ready to break through the noise of the industry.
-  </p>
-  <p>
-    We empower artists with the <strong>tools, knowledge, and environment</strong> needed to fully realize their potential. Whether you're a rapper finding your voice, a singer refining your sound, or a producer crafting the next genre-defining beat, we help you rise above the ordinary and <strong>define your legacy</strong>.
-  </p>
-  <p>
-    We provide access to <strong>cutting-edge facilities</strong> — from fully equipped recording studios and mixing rooms to writing spaces designed for creative breakthroughs. But <em>tools alone don’t make legends</em> — <strong>mindset does</strong>. That’s why we offer <strong>hands-on coaching</strong> from experienced mentors, producers, and engineers who understand what it takes to go from underground talent to household name. We don’t just teach technique — we instill <strong>discipline, vision, and creative fearlessness</strong>.
-  </p>
-  <p>
-    At the heart of DIOR Lifestyle is a <strong>culture of relentless creativity</strong>. Our artists are encouraged to <em>experiment</em>, <em>push their limits</em>, and <em>challenge the status quo</em>. We don’t follow trends — <strong>we set them</strong>. This is a space where bold ideas are welcomed, where storytelling matters, and where every track is treated as a <em>masterpiece in the making</em>.
-  </p>
-  <p>
-    We build not just careers, but <strong>lasting legacies</strong>. Every artist who walks through our doors becomes part of a growing <strong>family</strong> — a community of dreamers and doers committed to supporting one another and leaving a mark on music history. We’re not here for fleeting fame; we’re here for <strong>timeless impact</strong>.
-  </p>
-  <p>
-    <strong>DIOR Lifestyle Records</strong> is where <strong>dreams become reality</strong>, where <strong>talent turns into greatness</strong>, and where music is not just made — <em>it’s lived</em>.
-  </p>
-</section>
-
+  <section class="mission section-pad reveal">
+    <h2>Our Mission</h2>
+    <p><strong>DIOR Lifestyle Records</strong> exists to nurture, develop, and elevate the next generation of iconic artists and visionary hit-makers. We are more than just a record label — we are a <strong>movement</strong>, a <em>creative sanctuary</em>, and a <strong>launchpad</strong> for raw talent ready to break through the noise of the industry.</p>
+    <p>We empower artists with the <strong>tools, knowledge, and environment</strong> needed to fully realize their potential. Whether you're a rapper finding your voice, a singer refining your sound, or a producer crafting the next genre-defining beat, we help you rise above the ordinary and <strong>define your legacy</strong>.</p>
+    <p>We provide access to <strong>cutting-edge facilities</strong> — from fully equipped recording studios and mixing rooms to writing spaces designed for creative breakthroughs. But <em>tools alone don’t make legends</em> — <strong>mindset does</strong>. That’s why we offer <strong>hands-on coaching</strong> from experienced mentors, producers, and engineers who understand what it takes to go from underground talent to household name. We don’t just teach technique — we instill <strong>discipline, vision, and creative fearlessness</strong>.</p>
+    <p>At the heart of DIOR Lifestyle is a <strong>culture of relentless creativity</strong>. Our artists are encouraged to <em>experiment</em>, <em>push their limits</em>, and <em>challenge the status quo</em>. We don’t follow trends — <strong>we set them</strong>. This is a space where bold ideas are welcomed, where storytelling matters, and where every track is treated as a <em>masterpiece in the making</em>.</p>
+    <p>We build not just careers, but <strong>lasting legacies</strong>. Every artist who walks through our doors becomes part of a growing <strong>family</strong> — a community of dreamers and doers committed to supporting one another and leaving a mark on music history. We’re not here for fleeting fame; we’re here for <strong>timeless impact</strong>.</p>
+    <p><strong>DIOR Lifestyle Records</strong> is where <strong>dreams become reality</strong>, where <strong>talent turns into greatness</strong>, and where music is not just made — <em>it’s lived</em>.</p>
+  </section>
 
   <!-- ===== WHY JOIN ===== -->
-<section class="why-join section-pad reveal">
-  <h2>Why Join Us?</h2>
-  <ul>
-    <li>🎙 Access to state‑of‑the‑art recording studios 24/7</li>
-    <li>🎼 Elite songwriting, production, and stage‑craft workshops</li>
-    <li>💼 One‑on‑one mentorship from platinum producers & A&Rs</li>
-    <li>📈 Release strategy, DSP pitching, and brand‑building support</li>
-    <li>🤝 A collaborative network of driven, like‑minded creatives</li>
-    <li>🔥 Freestyle development labs to sharpen your flow and delivery</li>
-    <li>🎧 Exclusive beat libraries from in-house and industry producers</li>
-    <li>📸 Content creation support for music videos, reels & promo</li>
-    <li>📊 Data-driven growth tracking to monitor your progress and fanbase</li>
-    <li>🎤 Performance coaching for live shows, sets, and crowd engagement</li>
-    <li>🧠 Business & contract education so you never sign a bad deal</li>
-    <li>🌍 Opportunities to perform at Dior Lifestyle showcases & industry events</li>
-    <li>🎓 Access to the Dior Lifestyle Music Academy with real-world artist training</li>
-    <li>🚀 Early access to distribution pipelines and music submission portals</li>
-    <li>👑 Backing from a leadership team that believes in artist independence and legacy</li>
-  </ul>
-</section>
-
+  <section class="why-join section-pad reveal">
+    <h2>Why Join Us?</h2>
+    <ul>
+      <li>🎙 Access to state‑of‑the‑art recording studios 24/7</li>
+      <li>🎼 Elite songwriting, production, and stage‑craft workshops</li>
+      <li>💼 One‑on‑one mentorship from platinum producers & A&Rs</li>
+      <li>📈 Release strategy, DSP pitching, and brand‑building support</li>
+      <li>🤝 A collaborative network of driven, like‑minded creatives</li>
+      <li>🔥 Freestyle development labs to sharpen your flow and delivery</li>
+      <li>🎧 Exclusive beat libraries from in-house and industry producers</li>
+      <li>📸 Content creation support for music videos, reels & promo</li>
+      <li>📊 Data-driven growth tracking to monitor your progress and fanbase</li>
+      <li>🎤 Performance coaching for live shows, sets, and crowd engagement</li>
+      <li>🧠 Business & contract education so you never sign a bad deal</li>
+      <li>🌍 Opportunities to perform at Dior Lifestyle showcases & industry events</li>
+      <li>🎓 Access to the Dior Lifestyle Music Academy with real-world artist training</li>
+      <li>🚀 Early access to distribution pipelines and music submission portals</li>
+      <li>👑 Backing from a leadership team that believes in artist independence and legacy</li>
+    </ul>
+  </section>
 
   <!-- ===== HIGHLIGHTS ===== -->
-<section class="highlights section-pad reveal">
-  <h2>🔥 Real Highlights</h2>
-  <p>Founders <strong>Luis Abernathy</strong>, <strong>Mfanelo Rikhotso</strong>, <strong>Tristan Jacobsen</strong> and <strong>Kay Jay the Quiet Kid</strong> who freestyled the hit single “WAR” in just 17 minutes—moving 7,000 units in its first week without a major label push. That relentless energy fuels everything we do.</p>
-  <p>From recording freestyles on his phone for hours to building a full studio and launching <strong>DIOR Lifestyle Records</strong> and its academy, Kay Jay’s grind started young. He began rapping at age 12, and by 19 he was already being recognized for his raw talent, unique flows, and work ethic that sets him apart from the rest.</p>
-  <p>Kay Jay recorded songs like “Renegade Freestyle” in a single take and “Ball Till I Fall” with a hook that became a fan anthem. Every song blends emotion, aggression, and truth—built without a pen, built from life.</p>
-  <p>Today, DIOR Lifestyle is more than a label—it’s a movement. Under Kay Jay’s leadership, we’ve launched music that resonates across South Africa and beyond, while giving independent artists the tools and mentorship to break through on their own terms.</p>
-  <p>This is not industry-standard. This is <strong>legend-building</strong>.</p>
-</section>
+  <section class="highlights section-pad reveal">
+    <h2>🔥 Real Highlights</h2>
+    <p>Founders <strong>Luis Abernathy</strong>, <strong>Mfanelo Rikhotso</strong>, <strong>Tristan Jacobsen</strong> and <strong>Kay Jay the Quiet Kid</strong> who freestyled the hit single “WAR” in just 17 minutes—moving 7,000 units in its first week without a major label push. That relentless energy fuels everything we do.</p>
+    <p>From recording freestyles on his phone for hours to building a full studio and launching <strong>DIOR Lifestyle Records</strong> and its academy, Kay Jay’s grind started young. He began rapping at age 12, and by 19 he was already being recognized for his raw talent, unique flows, and work ethic that sets him apart from the rest.</p>
+    <p>Kay Jay recorded songs like “Renegade Freestyle” in a single take and “Ball Till I Fall” with a hook that became a fan anthem. Every song blends emotion, aggression, and truth—built without a pen, built from life.</p>
+    <p>Today, DIOR Lifestyle is more than a label—it’s a movement. Under Kay Jay’s leadership, we’ve launched music that resonates across South Africa and beyond, while giving independent artists the tools and mentorship to break through on their own terms.</p>
+    <p>This is not industry-standard. This is <strong>legend-building</strong>.</p>
+  </section>
 
   <!-- ===== SUCCESS STORIES ===== -->
- <section class="success-stories section-pad reveal">
-  <h2>Success Stories</h2>
-  <p>From viral breakout tracks to sold‑out showcases, DIOR Lifestyle Records has become a launchpad for unstoppable talent. What started as an independent dream has grown into a movement shaping the future of South African music—one artist at a time.</p>
-
-  <p>Our founder, <strong>Kay Jay the Quiet Kid</strong>, set the tone by turning raw talent into real numbers—moving over 7,000 units in one week with no major label, no gimmicks, just pure skill and consistency. His story inspired a wave of up-and-coming artists who now call DIOR Lifestyle home.</p>
-
-  <p>Our alumni have gone on to land playlist placements on platforms like Spotify, Apple Music, and Audiomack, perform on stages across Gauteng and Limpopo, and earn loyal fanbases through authentic storytelling and bold creative direction. Some have even secured sync licensing opportunities, viral moments, and collaboration requests from top-tier artists and producers—all through a system built to spotlight real artistry, not industry politics.</p>
-
-  <p>Every artist who passes through the DIOR Lifestyle Academy receives personal mentorship, access to high-end production tools, and the opportunity to grow their brand and their sound. Whether it's your first song or your next tour, our platform is designed to help you level up and break through.</p>
-
-  <p>DIOR Lifestyle success isn’t just measured by views or streams—it’s measured by impact, by growth, and by the respect these artists earn for staying true to themselves in a copy-paste industry. When our artists win, they don’t just trend—they lead.</p>
-
-  <p>This is how we create legends, not just moments.</p>
-</section>
-
+  <section class="success-stories section-pad reveal">
+    <h2>Success Stories</h2>
+    <p>From viral breakout tracks to sold‑out showcases, DIOR Lifestyle Records has become a launchpad for unstoppable talent. What started as an independent dream has grown into a movement shaping the future of South African music—one artist at a time.</p>
+    <p>Our founder, <strong>Kay Jay the Quiet Kid</strong>, set the tone by turning raw talent into real numbers—moving over 7,000 units in one week with no major label, no gimmicks, just pure skill and consistency. His story inspired a wave of up-and-coming artists who now call DIOR Lifestyle home.</p>
+    <p>Our alumni have gone on to land playlist placements on platforms like Spotify, Apple Music, and Audiomack, perform on stages across Gauteng and Limpopo, and earn loyal fanbases through authentic storytelling and bold creative direction. Some have even secured sync licensing opportunities, viral moments, and collaboration requests from top-tier artists and producers—all through a system built to spotlight real artistry, not industry politics.</p>
+    <p>Every artist who passes through the DIOR Lifestyle Academy receives personal mentorship, access to high-end production tools, and the opportunity to grow their brand and their sound. Whether it's your first song or your next tour, our platform is designed to help you level up and break through.</p>
+    <p>DIOR Lifestyle success isn’t just measured by views or streams—it’s measured by impact, by growth, and by the respect these artists earn for staying true to themselves in a copy-paste industry. When our artists win, they don’t just trend—they lead.</p>
+    <p>This is how we create legends, not just moments.</p>
+  </section>
 
   <!-- ===== FOOTER ===== -->
   <footer>
     <p>&copy; 2025 DIOR Lifestyle Records. All rights reserved.</p>
   </footer>
 
+  <!-- ===== FLOATING BUTTONS ===== -->
+  <div class="floating-buttons">
+    <a href="login.html" class="fab" id="loginBtn">Login</a>
+    <a href="signup.html" class="fab" id="signupBtn">Sign Up</a>
+    <a href="#" class="fab" id="logoutBtn" style="display:none;">Logout</a>
+  </div>
+
+  <!-- ===== SCRIPTS ===== -->
   <script>
-    // IntersectionObserver for scroll reveal
-    document.addEventListener('DOMContentLoaded',()=>{
-      const reveals=document.querySelectorAll('.reveal');
-      const obs=new IntersectionObserver((entries,observer)=>{
-        entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('show'); observer.unobserve(entry.target);} });
-      },{threshold:0.15});
-      reveals.forEach(r=>obs.observe(r));
+    // Scroll reveal
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveals = document.querySelectorAll('.reveal');
+      const obs = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {threshold: 0.15});
+      reveals.forEach(r => obs.observe(r));
+    });
+
+    // Floating buttons logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginBtn = document.getElementById('loginBtn');
+      const signupBtn = document.getElementById('signupBtn');
+      const logoutBtn = document.getElementById('logoutBtn');
+
+      // Check login state
+      const userLoggedIn = localStorage.getItem('userLoggedIn') === 'true';
+
+      if(userLoggedIn){
+        loginBtn.style.display = 'none';
+        signupBtn.style.display = 'none';
+        logoutBtn.style.display = 'inline-block';
+      } else {
+        loginBtn.style.display = 'inline-block';
+        signupBtn.style.display = 'inline-block';
+        logoutBtn.style.display = 'none';
+      }
+
+      // Logout click
+      logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('userLoggedIn'); // Log out
+        loginBtn.style.display = 'inline-block';
+        signupBtn.style.display = 'inline-block';
+        logoutBtn.style.display = 'none';
+      });
     });
   </script>
-<!-- ===== FLOATING BUTTONS ===== -->
-<div class="fab-container">
-  <a href="login.html" class="fab-login">Login</a>
-  <a href="signup.html" class="fab-signup">Sign Up</a>
-</div>
-
 
 </body>
 </html>

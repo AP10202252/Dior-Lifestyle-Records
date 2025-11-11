@@ -294,13 +294,46 @@
   <footer>
     &copy; 2025 DIOR Lifestyle Records. All Rights Reserved.
   </footer>
+
+
+ <!-- ===== FLOATING BUTTONS ===== -->
+  <div class="floating-buttons">
+    <a href="login.html" class="fab" id="loginBtn">Login</a>
+    <a href="signup.html" class="fab" id="signupBtn">Sign Up</a>
+    <a href="#" class="fab" id="logoutBtn" style="display:none;">Logout</a>
+  </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get the floating buttons
+    const loginBtn = document.getElementById('loginBtn');
+    const signupBtn = document.getElementById('signupBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    // Check if user is logged in
+    const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+
+    // Update button visibility based on login state
+    if (isLoggedIn) {
+      loginBtn.style.display = 'none';
+      signupBtn.style.display = 'none';
+      logoutBtn.style.display = 'block';
+    } else {
+      loginBtn.style.display = 'block';
+      signupBtn.style.display = 'block';
+      logoutBtn.style.display = 'none';
+    }
+
+    // Logout logic
+    logoutBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      localStorage.removeItem('loggedIn'); // remove login state
+      window.location.href = 'index.html'; // redirect to homepage
+    });
+  });
+</script>
+
+
+
 </body>
-
-<!-- ===== FLOATING BUTTONS ===== -->
-<div class="fab-container">
-  <a href="login.html" class="fab-login">Login</a>
-  <a href="signup.html" class="fab-signup">Sign Up</a>
-</div>
-
-
 </html>
